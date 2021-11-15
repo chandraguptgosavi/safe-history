@@ -1,0 +1,19 @@
+{
+  "name": "Safe History",
+  "description": "Prevent history from being saved based on keywords you specify!",
+  "version": "0.1",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "public/js/background.js"
+  },
+  "action": {
+    "default_popup": "public/popup.html",
+    "default_icon": {
+      "16": "public/assets/logo16.png",
+      "32": "public/assets/logo32.png",
+      "48": "public/assets/logo48.png",
+      "128": "public/assets/logo128.png"
+    }
+  },
+  "permissions": ["storage", "webNavigation", "tabs", "history"]
+}

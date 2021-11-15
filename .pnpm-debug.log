@@ -1,0 +1,36 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 debug pnpm:package-manifest": {
+    "initial": {},
+    "prefix": "/media/chandragupt/workspace/code/Web/Projects/Frontend/safe-history"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": false,
+    "storeDir": "/media/chandragupt/workspace/.pnpm-store/v3",
+    "virtualStoreDir": "/media/chandragupt/workspace/code/Web/Projects/Frontend/safe-history/node_modules/.pnpm"
+  },
+  "3 debug pnpm:stage": {
+    "prefix": "/media/chandragupt/workspace/code/Web/Projects/Frontend/safe-history",
+    "stage": "resolution_started"
+  },
+  "4 error pnpm": {
+    "code": "ERR_PNPM_FETCH_404",
+    "hint": "@chrome/types is not in the npm registry, or you have no permission to fetch it.\n\nNo authorization header was set for the request.",
+    "request": {
+      "url": "https://registry.npmjs.org/@chrome%2Ftypes"
+    },
+    "response": {
+      "size": 0
+    },
+    "pkgName": "@chrome/types",
+    "pkgsStack": [],
+    "err": {
+      "name": "pnpm",
+      "message": "GET https://registry.npmjs.org/@chrome%2Ftypes: Not Found - 404",
+      "code": "ERR_PNPM_FETCH_404",
+      "stack": "pnpm: GET https://registry.npmjs.org/@chrome%2Ftypes: Not Found - 404\n    at RetryOperation._fn (/home/chandragupt/.nvm/versions/node/v17.0.1/pnpm-global/5/node_modules/.pnpm/pnpm@6.20.3/node_modules/pnpm/dist/pnpm.cjs:84882:18)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    }
+  }
+}

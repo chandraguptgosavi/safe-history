@@ -1,0 +1,6 @@
+{
+	"dependencies": {
+		"@types/chrome": "^0.0.163",
+		"@types/node": "^16.11.7"
+	}
+}
