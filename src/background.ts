@@ -25,10 +25,11 @@ chrome.storage.onChanged.addListener(
 
 chrome.history.onVisited.addListener((result: chrome.history.HistoryItem) => {
   if (result.url && switchOn) {
-    keywords.forEach((keyword: Keyword) => {
+    for (let keyword of keywords) {
       if (result.url!.includes(keyword.data)) {
         chrome.history.deleteUrl({ url: result.url! });
+        break;
       }
-    });
+    }
   }
 });

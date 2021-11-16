@@ -17,10 +17,11 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
 });
 chrome.history.onVisited.addListener((result) => {
     if (result.url && switchOn) {
-        keywords.forEach((keyword) => {
+        for (let keyword of keywords) {
             if (result.url.includes(keyword.data)) {
                 chrome.history.deleteUrl({ url: result.url });
+                break;
             }
-        });
+        }
     }
 });
