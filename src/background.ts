@@ -5,6 +5,11 @@ let switchOn: Boolean = true;
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.sync.set({ "switchOn": true });
+  chrome.storage.sync.get("keywords").then((data) => {
+    if (typeof data.keywords === "undefined") {
+      chrome.storage.sync.set({ "keywords": [] as Keyword[] });
+    }
+  });
 });
 
 chrome.storage.sync.get("keywords").then((data) => (keywords = data.keywords));
