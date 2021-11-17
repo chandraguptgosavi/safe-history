@@ -100,7 +100,7 @@ async function App() {
       isAddKeywordCardVisible = true;
       keywordAddButton.addEventListener("click", async (event: MouseEvent) => {
         const keyword: string = keywordInput.value.trim().toLowerCase();
-        if (keyword.length > 0) {
+        if (keyword.length > 0 && !data.keywords.some((item:Keyword) => item.data === keyword)) {
           const newData = {
             keywords: [
               ...data.keywords,

@@ -95,7 +95,7 @@ function App() {
                 isAddKeywordCardVisible = true;
                 keywordAddButton.addEventListener("click", (event) => __awaiter(this, void 0, void 0, function* () {
                     const keyword = keywordInput.value.trim().toLowerCase();
-                    if (keyword.length > 0) {
+                    if (keyword.length > 0 && !data.keywords.some((item) => item.data === keyword)) {
                         const newData = {
                             keywords: [
                                 ...data.keywords,
