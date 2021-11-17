@@ -29,12 +29,15 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
     }
 });
 chrome.history.onVisited.addListener((result) => {
-    if (result.url && switchOn) {
-        for (let keyword of keywords) {
-            if (result.url.toLocaleLowerCase().includes(keyword.data)) {
-                chrome.history.deleteUrl({ url: result.url });
-                break;
+    setTimeout(() => {
+        if (result.url && switchOn) {
+            for (let keyword of keywords) {
+                if (result.url.toLocaleLowerCase().includes(keyword.data)) {
+                    chrome.history.deleteUrl({ url: result.url });
+                    break;
+                }
             }
         }
-    }
+    }, 0);
 });
+export {};

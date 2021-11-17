@@ -36,12 +36,14 @@ chrome.storage.onChanged.addListener((changes: any, areaName: string) => {
 });
 
 chrome.history.onVisited.addListener((result: chrome.history.HistoryItem) => {
-  if (result.url && switchOn) {
-    for (let keyword of keywords) {
+  setTimeout(() => {
+    if (result.url && switchOn) {
+      for (let keyword of keywords) {
         if (result.url.toLocaleLowerCase().includes(keyword.data)) {
           chrome.history.deleteUrl({ url: result.url });
           break;
         }
+      }
     }
-  }
+  }, 0);
 });
