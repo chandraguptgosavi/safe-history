@@ -4,7 +4,8 @@
   "version": "0.1",
   "manifest_version": 3,
   "background": {
-    "service_worker": "public/js/background.js"
+    "service_worker": "public/js/background.js",
+    "type": "module"
   },
   "action": {
     "default_popup": "public/popup.html",
