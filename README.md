@@ -1,10 +1,5 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,900&display=swap" rel="stylesheet">
 <p align="center">
-  <a href="" rel="noopener" target="_blank" style="text-decoration:none;">
-  <span style="color:#56445D;font-size:4rem;font-weight:900;font-family: 'Source Sans Pro', sans-serif;">Safe History</span>
-  </a>
+  <a href="https://chrome.google.com/webstore/detail/safe-history/hoakpodbfiokeacfknabolojboamdhdc" rel="noopener" target="_blank"><img width="300" src="https://drive.google.com/uc?id=1ihRpDYqXMTOJKia7g882-44HOjAFq7tP" alt="Safe History logo"></a></p>
 </p>
 
 <div align="center">
