@@ -85,17 +85,10 @@ function App() {
                 const keywordInput = document.createElement("input");
                 keywordInput.className = "Input";
                 keywordInput.placeholder = "Enter keyword";
-                const keywordAddButton = document.createElement("div");
-                keywordAddButton.className = "Add-Keyword-Button";
-                keywordAddButton.innerText = "Add Keyword";
-                card.appendChild(keywordInput);
-                card.appendChild(keywordAddButton);
-                bodyEl.appendChild(card);
-                fab.innerHTML = closeIconHTML;
-                isAddKeywordCardVisible = true;
-                keywordAddButton.addEventListener("click", (event) => __awaiter(this, void 0, void 0, function* () {
+                const addKeyword = () => __awaiter(this, void 0, void 0, function* () {
                     const keyword = keywordInput.value.trim().toLowerCase();
-                    if (keyword.length > 0 && !data.keywords.some((item) => item.data === keyword)) {
+                    if (keyword.length > 0 &&
+                        !data.keywords.some((item) => item.data === keyword)) {
                         const newData = {
                             keywords: [
                                 ...data.keywords,
@@ -105,7 +98,25 @@ function App() {
                         yield chrome.storage.sync.set(newData);
                         data = newData;
                         loadKeywords();
+                        keywordInput.value = "";
                     }
+                });
+                keywordInput.addEventListener("keydown", (event) => __awaiter(this, void 0, void 0, function* () {
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+                        yield addKeyword();
+                    }
+                }));
+                const keywordAddButton = document.createElement("div");
+                keywordAddButton.className = "Add-Keyword-Button";
+                keywordAddButton.innerText = "Add Keyword";
+                card.appendChild(keywordInput);
+                card.appendChild(keywordAddButton);
+                bodyEl.appendChild(card);
+                fab.innerHTML = closeIconHTML;
+                isAddKeywordCardVisible = true;
+                keywordAddButton.addEventListener("click", (event) => __awaiter(this, void 0, void 0, function* () {
+                    yield addKeyword();
                 }));
             }
         };

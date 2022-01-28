@@ -1,3 +1,4 @@
+import { Key } from "readline";
 import { Keyword } from "./models";
 
 async function App() {
@@ -89,18 +90,12 @@ async function App() {
       keywordInput.className = "Input";
       keywordInput.placeholder = "Enter keyword";
 
-      const keywordAddButton: HTMLDivElement = document.createElement("div");
-      keywordAddButton.className = "Add-Keyword-Button";
-      keywordAddButton.innerText = "Add Keyword";
-
-      card.appendChild(keywordInput);
-      card.appendChild(keywordAddButton);
-      bodyEl.appendChild(card);
-      fab.innerHTML = closeIconHTML;
-      isAddKeywordCardVisible = true;
-      keywordAddButton.addEventListener("click", async (event: MouseEvent) => {
+      const addKeyword = async () => {
         const keyword: string = keywordInput.value.trim().toLowerCase();
-        if (keyword.length > 0 && !data.keywords.some((item:Keyword) => item.data === keyword)) {
+        if (
+          keyword.length > 0 &&
+          !data.keywords.some((item: Keyword) => item.data === keyword)
+        ) {
           const newData = {
             keywords: [
               ...data.keywords,
@@ -110,7 +105,29 @@ async function App() {
           await chrome.storage.sync.set(newData);
           data = newData;
           loadKeywords();
+          keywordInput.value = "";
         }
+      }
+
+      keywordInput.addEventListener("keydown", async (event: KeyboardEvent) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          await addKeyword();
+        }
+       });
+
+      const keywordAddButton: HTMLDivElement = document.createElement("div");
+      keywordAddButton.className = "Add-Keyword-Button";
+      keywordAddButton.innerText = "Add Keyword";
+
+      card.appendChild(keywordInput);
+      card.appendChild(keywordAddButton);
+      bodyEl.appendChild(card);
+      fab.innerHTML = closeIconHTML;
+      isAddKeywordCardVisible = true;
+
+      keywordAddButton.addEventListener("click", async (event: MouseEvent) => {
+        await addKeyword();
       });
     }
   };
