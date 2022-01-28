@@ -85,6 +85,7 @@ function App() {
                 const keywordInput = document.createElement("input");
                 keywordInput.className = "Input";
                 keywordInput.placeholder = "Enter keyword";
+                keywordInput.autofocus = true;
                 const addKeyword = () => __awaiter(this, void 0, void 0, function* () {
                     const keyword = keywordInput.value.trim().toLowerCase();
                     if (keyword.length > 0 &&

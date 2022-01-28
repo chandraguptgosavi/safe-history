@@ -89,6 +89,7 @@ async function App() {
       const keywordInput: HTMLInputElement = document.createElement("input");
       keywordInput.className = "Input";
       keywordInput.placeholder = "Enter keyword";
+      keywordInput.autofocus = true;
 
       const addKeyword = async () => {
         const keyword: string = keywordInput.value.trim().toLowerCase();
